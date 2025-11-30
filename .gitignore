@@ -3,3 +3,6 @@
 .env
 __pycache__
 data/
+.venv/
+data/vector_store/
+__pycache__/
