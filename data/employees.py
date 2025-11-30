@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 
 fake = Faker()
 
+# this function generates a list of employee data dictionaries
 def generate_employee_data(num_employees=5):
     employees = []
     for _ in range(num_employees):

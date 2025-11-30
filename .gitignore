@@ -1,4 +1,5 @@
 .DS_Store
+.env.example
 .env
 __pycache__
 data/
