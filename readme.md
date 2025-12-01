@@ -1,129 +1,118 @@
-🧬 Onboarding Assistant — RAG System for Umbrella Corporation
+# 🧬 **Onboarding Assistant — RAG System for Umbrella Corporation**
 
-A Retrieval-Augmented Generation (RAG) onboarding chatbot built with LangChain, ChromaDB, and Streamlit
+*A Retrieval-Augmented Generation (RAG) onboarding chatbot built with LangChain, ChromaDB, and Streamlit*
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Umbrella_Corporation_logo.svg" alt="Umbrella Corporation Logo" width="110"/>
-📘 Overview
 
-This project implements a Retrieval-Augmented Generation (RAG) onboarding assistant for the fictional Umbrella Corporation from the Resident Evil universe. The goal is to simulate a modern AI-powered internal onboarding tool that helps new employees navigate corporate policies, internal procedures, and company regulations.
+---
+
+## 📘 **Overview**
+
+This project implements a **Retrieval-Augmented Generation (RAG)** onboarding assistant for the fictional **Umbrella Corporation** from the *Resident Evil* universe. The goal is to simulate a modern AI-powered internal onboarding tool that helps new employees navigate corporate policies, internal procedures, and company regulations.
 
 The system combines:
 
-Generative AI for natural, context-aware responses
+- **Generative AI** for natural, context-aware responses  
+- **Vector-based retrieval** to ground answers in real internal documents  
+- **Synthetic employee profiles** to personalize the onboarding experience  
+- **A user-friendly UI** built with Streamlit  
 
-Vector-based retrieval to ground answers on real internal documents
+The result is a realistic AI assistant capable of answering questions about policies, work guidelines, safety protocols, and employee benefits using both **document-augmented knowledge** and **user-specific attributes**.
 
-Synthetic employee profiles to personalize the onboarding experience
+---
 
-A user-friendly UI built with Streamlit
+## 🧠 **Project Architecture & Technical Stack**
 
-The result is a realistic AI assistant capable of answering questions about policies, work guidelines, safety protocols, and employee benefits using both document-augmented knowledge and user-specific attributes.
+The assistant is designed using a modern modular AI architecture centered around the **RAG pipeline**, consisting of the following components:
 
-🧠 Project Architecture & Technical Stack
+### 🔗 **1. LangChain**
 
-The assistant is designed using modern modular AI architecture, centered around the RAG pipeline:
+LangChain orchestrates the entire workflow by:
 
-🔗 1. LangChain
+- Managing the LLM interaction  
+- Handling prompt templates for personalization  
+- Linking the LLM with the vector store retriever  
+- Providing tools for document loading, splitting, and retrieval chains  
 
-LangChain orchestrates the entire workflow:
+This ensures the application is **scalable, maintainable, and extendable** for real-world use cases.
 
-Manages the LLM interaction
+### 🗃️ **2. Chroma Vector Database**
 
-Handles prompt templates for personalization
+Company policies extracted from a PDF are embedded and stored in a **Chroma vector database**:
 
-Connects the LLM with the vector store retriever
+- Text is chunked and embedded using an embedding model  
+- Chroma stores and indexes these embeddings  
+- Queries retrieve the most relevant context chunks  
 
-Provides tools for document loading, splitting, and retrieval chains
+This allows the assistant to provide **fact-grounded answers** with high relevance and minimal hallucination.
 
-Using LangChain ensures the application is scalable, maintainable, and easily extendable for real-world use.
+### 🤖 **3. Large Language Model (LLM)**
 
-🗃️ 2. Chroma Vector Database
+The selected LLM (OpenAI, HuggingFace, or other configured providers) is responsible for:
 
-Company policies (PDF) are embedded and stored in a Chroma vector database:
+- Understanding user queries  
+- Integrating retrieved corporate policy context  
+- Personalizing responses using employee data  
 
-Text is chunked and embedded (using an embedding model)
+### 👤 **4. Synthetic Employee Database**
 
-Chroma stores and indexes the documents
+A synthetic employee generator provides realistic profiles including:
 
-Queries retrieve the most relevant context passages
+- Employment status  
+- Department  
+- Clearance level  
+- Role-specific responsibilities  
+- Training progress  
 
-This enables the assistant to provide fact-grounded answers with high relevance and low hallucination.
+This ensures responses are **dynamic and tailored** to each employee.
 
-🤖 3. Large Language Model (LLM)
+### 🖥️ **5. Streamlit Interface**
 
-The LLM (e.g., OpenAI, HuggingFace, or any configured provider) is responsible for:
+A clean and interactive web interface built with **Streamlit**:
 
-Understanding user queries
+- Allows employees to chat with the onboarding assistant  
+- Displays retrieved context when necessary  
+- Provides a smooth and intuitive user experience  
 
-Integrating retrieved corporate policy context
+---
 
-Personalizing responses using employee metadata
+## 🏢 **Business Context**
 
-👤 4. Synthetic Employee Database
+The **Umbrella Corporation** is a large multinational biotech and pharmaceutical conglomerate known for its advanced research and strict internal governance. New employees must quickly understand:
 
-A synthetic employee generator provides realistic employee profiles containing:
-
-Employment status
-
-Department
-
-Clearance level
-
-Role-specific responsibilities
-
-Training progress
-
-This allows the assistant to produce dynamic and personalized answers tailored to each employee.
-
-🖥️ 5. Streamlit Interface
-
-A clean and interactive UI built with Streamlit:
-
-Lets employees chat with the onboarding assistant
-
-Displays retrieved context when needed
-
-Provides a smooth user experience in web application form
-
-🏢 Business Context
-
-The Umbrella Corporation is a vast, multinational biotech and pharmaceutical conglomerate known for its advanced research and strict internal governance. New employees must quickly understand:
-
-Safety protocols
-
-Corporate compliance
-
-Research facility guidelines
-
-Biohazard procedures
-
-Human resources policies
+- Safety protocols  
+- Corporate compliance  
+- Research facility guidelines  
+- Biohazard procedures  
+- Human resources policies  
 
 This onboarding assistant helps new hires navigate these regulations efficiently, providing:
 
-Instant answers to onboarding questions
+- Instant answers to onboarding questions  
+- Guidance tailored to their employee profile  
+- Summaries of complex internal policies  
+- A faster and more engaging onboarding experience  
 
-Guidance based on their employee profile
+Although fictional, the system design reflects **real enterprise AI onboarding tools**.
 
-Summaries of complex internal policies
+---
 
-A faster, more engaging onboarding experience
+## 🚀 **Features**
 
-Although fictional, the system design reflects real enterprise AI onboarding tools.
+### **RAG-Enhanced Querying**
+Answers are grounded in the Umbrella regulations PDF using Chroma vector search.
 
-🚀 Features
+### **Fully Personalized Responses**
+Employee-specific metadata is used to provide highly contextualized answers.
 
-RAG-Enhanced Querying
-Answers are grounded in the Umbrella regulations PDF.
+### **Interactive Chat Interface**
+Built with Streamlit for smooth two-way conversation.
 
-Fully Personalized Responses
-Using employee-specific data for contextualized answers.
+### **Searchable Regulatory Database**
+All policy documents are indexed and retrievable through LangChain + Chroma.
 
-Interactive Chat Interface
-Built with Streamlit for seamless communication.
+### **Modular & Extensible Design**
+Easily add more documents, new models, or data sources.
 
-Searchable Regulatory Database
-Powered by Chroma and integrated through LangChain.
+---
 
-Modular Design
-Easy to extend with more documents, new models, or other data sources.
